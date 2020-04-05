@@ -1,8 +1,6 @@
 /*
 Primer Trabajo Compiladores
-* Miguel Mendoza 
-* CI : 5.028.491
-Recibe un archivo fuente Json, debe realizar un analisis lexico reconociendo tokens, 
+Recibe un archivo fuente Json, debe realizar un analisis lexico reconociendo tokens,
 y luego por cada linea del fuente imprimir una linea en un archivo de salida con la secuencia 
 de componentes lexicos encontrados separados por espacios	
  */
