@@ -1,0 +1,48 @@
+************************************
+*** GRAMÁTICA DE UN ARCHIVO JSON ***
+************************************
+
+*** Terminal ***
+    string (LITERAL_CADENA)
+    null (PR_NULL)
+    true (PR_TRUE)
+    false (PR_FALSE)
+    num (LITERAL_NUM)
+    : (DOS_PUNTOS)
+    , (COMA)
+    [ (L_CORCHETE)
+    ] (R_CORCHETE)
+    { (L_LLAVE)
+    } (R_LLAVE)
+    eof (EOF)
+
+*** No Terminal ***
+    JSON
+    ELEMENT
+    ARRAY
+    ARRAY_PRIMA
+    OBJECT
+    OBJECT_PRIMA
+    ELEMENT_LIST
+    ELEMENT_LIST_PRIMA
+    ATTRIBUTE_LIST
+    ATTRIBUTE_LIST_PRIMA
+    ATTRIBUTE
+    ATTRIBUTE_NAME
+    ATTRIBUTE_VALUE
+    
+
+JSON                    =>      ELEMENT
+ELEMENT                 =>      OBJECT | ARRAY
+ARRAY                   =>      L_CORCHETE ARRAY_PRIMA
+ARRAY_PRIMA             =>      ELEMENT_LIST R_CORCHETE
+OBJECT                  =>      L_LLAVE OBJECT_PRIMA
+OBJECT_PRIMA            =>      ATTRIBUTE_LIST R_LLAVE | R_LLAVE
+ELEMENT_LIST            =>      ELEMENT ELEMENT_LIST_PRIMA
+ELEMENT_LIST_PRIMA      =>      COMA ELEMENT ELEMENT_LIST_PRIMA | ε
+ATTRIBUTE_LIST          =>      ATTRIBUTE ATTRIBUTE_LIST_PRIMA
+ATTRIBUTE_LIST_PRIMA    =>      COMA ATTRIBUTE ATTRIBUTE_LIST_PRIMA |  ε
+ATTRIBUTE               =>      ATTRIBUTE_NAME DOS_PUNTOS ATTRIBUTE_VALUE
+ATTRIBUTE_NAME          =>      LITERAL_CADENA
+ATTRIBUTE_VALUE         =>      LITERAL_CADENA | LITERAL_NUM | PR_TRUE | PR_FALSE | PR_NULL | ELEMENT
+
